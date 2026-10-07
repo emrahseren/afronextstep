@@ -30,14 +30,14 @@
   --body:'Instrument Sans',ui-sans-serif,system-ui,sans-serif;
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
-  --bg:#0A1F18; --surface:#10291F; --line:#24443A;
+  --bg:#06140F; --surface:#0B1E17; --line:#1D382F;
   --fg:#E9F1EC; --muted:#A9BDB2;
   --soft:#F08A3C; --soft-fill:#D9691A;
   --biz:#55C492;  --biz-fill:#1F8A5B;
   --inv:#BFE5D2;  --inv-fill:#1B5A45;
   --on-fill:#FFFFFF; --tile:#EDF3EE; --tile-line:#0B3D2E; color-scheme:dark } }
 :root[data-theme="dark"]{
-  --bg:#0A1F18; --surface:#10291F; --line:#24443A;
+  --bg:#06140F; --surface:#0B1E17; --line:#1D382F;
   --fg:#E9F1EC; --muted:#A9BDB2;
   --soft:#F08A3C; --soft-fill:#D9691A;
   --biz:#55C492;  --biz-fill:#1F8A5B;
@@ -88,7 +88,10 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;letter-spacing:-0.02em;lin
 .pillars a:nth-child(1) i{background:var(--soft-fill)}
 .pillars a:nth-child(2) i{background:var(--biz-fill)}
 .pillars a:nth-child(3) i{background:var(--inv)}
-@media (max-width:760px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.hero .mark{width:160px;justify-self:start;order:-1}}
+.markrow{display:flex;justify-content:center;min-width:0}
+.m-only{display:none}
+@media (max-width:760px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.markrow{order:-1;justify-content:flex-start;align-items:center;gap:20px}.hero .mark{width:150px;flex:none}.m-only{display:block;line-height:2.1}.d-only{display:none}
+.pillars{flex-wrap:nowrap;gap:8px}.pillars a{flex:1 1 0;min-width:0;justify-content:center;gap:7px;padding:10px 6px;font-size:.8125rem;white-space:nowrap}.pillars i{width:10px;height:10px}}
 
 .hero h1{min-height:3.3em}
 @media (max-width:760px){.hero h1{min-height:4.4em}}
@@ -96,12 +99,10 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;letter-spacing:-0.02em;lin
 .tw-caret{position:relative}
 .tw-caret::after{content:"";position:absolute;left:.04em;top:.14em;width:.07em;height:.82em;background:var(--soft);animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-@media (prefers-reduced-motion: no-preference){
 .mark polygon{transform-box:fill-box;animation:.55s cubic-bezier(.2,.7,.2,1) both}
 .mark .p-left{transform-origin:50% 100%;animation-name:growY;animation-delay:.25s}
 .mark .p-right{transform-origin:50% 0%;animation-name:growY;animation-delay:.6s}
 .mark .p-bar{transform-origin:0% 50%;animation-name:growX;animation-delay:1s;animation-duration:.45s}
-}
 @keyframes growY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
 @keyframes growX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 /* pillar sections */
@@ -215,7 +216,7 @@ img{max-width:100%}
   <section class="hero">
     <div class="wrap">
       <div>
-        <p class="eyebrow" style="color:var(--muted)">Software · Business · Investment Consulting</p>
+        <p class="eyebrow d-only" style="color:var(--muted)">Software · Business · Investment Consulting</p>
         <h1 id="hero-title" style="margin-top:18px" aria-label="Your next step in Africa starts here.">Your <em>next step</em> in Africa starts here.</h1>
         <p class="lead">AfroNextStep is a consulting company based in Abuja, Nigeria. We build software, advise businesses and support investors working across African markets.</p>
         <div class="pillars">
@@ -224,6 +225,7 @@ img{max-width:100%}
           <a href="#investment"><i></i>Investment</a>
         </div>
       </div>
+      <div class="markrow">
       <svg class="mark" viewBox="0 0 120 120" role="img" aria-label="AfroNextStep logo mark">
         <rect x="2" y="2" width="116" height="116" rx="26" fill="#EDF3EE" stroke="#0B3D2E" stroke-width="3"></rect>
         <g transform="translate(60 60) scale(1.12) translate(-60 -61)">
@@ -232,6 +234,8 @@ img{max-width:100%}
           <polygon class="p-left" points="25,94 40,94 67,28 53,28" fill="#D9691A"></polygon>
         </g>
       </svg>
+      <p class="eyebrow m-only" style="color:var(--muted)">Software<br>Business<br>Investment<br>Consulting</p>
+      </div>
     </div>
   </section>
 
@@ -387,7 +391,7 @@ document.querySelectorAll('.copy').forEach(function (btn) {
 })();
 (function () {
   var h = document.getElementById('hero-title');
-  if (!h || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  if (!h) return;
   /* each slogan: [text, colour token or null] segments */
   var slogans = [
     [['Your ', null], ['next step', '--soft'], [' in Africa starts here.', null]],
