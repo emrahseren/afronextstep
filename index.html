@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AfroNextStep | Software, Business and Investment Consulting</title>
+<meta name="description" content="AfroNextStep is a consulting company based in Abuja, Nigeria. We build software, advise businesses and support investors working across African markets.">
+<meta property="og:title" content="AfroNextStep">
+<meta property="og:description" content="Software, Business and Investment Consulting. Based in Abuja, Nigeria.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.afronextstep.com/">
+<meta property="og:image" content="https://www.afronextstep.com/og-image.png">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: the logo's three colours become three pillars. Each section owns one colour
+   (orange = Software, green = Business, deep green = Investment); everything else stays quiet. */
+:root{
+  --bg:#D4DFD7; --surface:#C5D3C9; --line:#A3B6AA;
+  --fg:#0B3D2E; --muted:#354C44;
+  --soft:#8F3D05; --soft-fill:#D9691A;
+  --biz:#0F5C3A;  --biz-fill:#1F8A5B;
+  --inv:#0B3D2E;  --inv-fill:#0B3D2E;
+  --on-fill:#FFFFFF; --tile:#EDF3EE; --tile-line:#0B3D2E;
+  --display:'Sora',ui-sans-serif,system-ui,sans-serif;
+  --body:'Instrument Sans',ui-sans-serif,system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0A1F18; --surface:#10291F; --line:#24443A;
+  --fg:#E9F1EC; --muted:#A9BDB2;
+  --soft:#F08A3C; --soft-fill:#D9691A;
+  --biz:#55C492;  --biz-fill:#1F8A5B;
+  --inv:#BFE5D2;  --inv-fill:#1B5A45;
+  --on-fill:#FFFFFF; --tile:#EDF3EE; --tile-line:#0B3D2E; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#0A1F18; --surface:#10291F; --line:#24443A;
+  --fg:#E9F1EC; --muted:#A9BDB2;
+  --soft:#F08A3C; --soft-fill:#D9691A;
+  --biz:#55C492;  --biz-fill:#1F8A5B;
+  --inv:#BFE5D2;  --inv-fill:#1B5A45;
+  --on-fill:#FFFFFF; --tile:#EDF3EE; --tile-line:#0B3D2E; color-scheme:dark }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:1.0625rem;line-height:1.6}
+h1,h2,h3,p,ul{margin:0}
+ul{padding:0;list-style:none}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--soft);outline-offset:3px}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;letter-spacing:-0.02em;line-height:1.1}
+.eyebrow{font-family:var(--display);font-size:.8125rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:700;font-size:1.25rem;letter-spacing:-0.03em}
+.brand svg{flex:none;display:block}
+.w-afro{color:var(--soft-fill)} .w-next{color:var(--biz-fill)} .w-step{color:var(--inv)}
+:root .w-afro{color:var(--soft)} :root .w-next{color:var(--biz)}
+.nav{display:flex;align-items:center;gap:clamp(12px,2.4vw,28px);font-weight:500;font-size:.9375rem}
+.nav a{text-decoration:none;padding-block:6px}
+.nav a:hover{text-decoration:underline;text-underline-offset:5px}
+.nav .cta{background:var(--inv-fill);color:var(--on-fill);padding:9px 16px;border-radius:999px}
+.nav .cta:hover{text-decoration:none;opacity:.9}
+@media (max-width:720px){.nav a:not(.cta){display:none}}
+.strip{display:flex;height:5px}
+.strip span{flex:1}
+.strip span:nth-child(1){background:var(--soft-fill)}
+.strip span:nth-child(2){background:var(--biz-fill)}
+.strip span:nth-child(3){background:var(--inv-fill)}
+
+/* hero */
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(24px,5vw,64px);align-items:center;padding-block:clamp(48px,8vw,96px)}
+.hero h1{font-size:clamp(2.5rem,6.2vw,4.5rem);font-weight:700}
+.hero h1 em{font-style:normal;color:var(--soft)}
+.hero p.lead{margin-top:20px;font-size:clamp(1.0625rem,1.6vw,1.25rem);color:var(--muted);max-width:34em}
+.hero .mark{justify-self:center;width:min(100%,300px);height:auto;display:block}
+.pillars{margin-top:32px;display:flex;flex-wrap:wrap;gap:10px}
+.pillars a{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--display);font-weight:600;font-size:.9375rem;border:1.5px solid var(--line);border-radius:999px;padding:10px 18px}
+.pillars a:hover{border-color:currentColor}
+.pillars i{width:12px;height:12px;display:block;flex:none}
+.pillars a:nth-child(1) i{background:var(--soft-fill)}
+.pillars a:nth-child(2) i{background:var(--biz-fill)}
+.pillars a:nth-child(3) i{background:var(--inv)}
+@media (max-width:760px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.hero .mark{width:160px;justify-self:start;order:-1}}
+
+.hero h1{min-height:3.3em}
+@media (max-width:760px){.hero h1{min-height:4.4em}}
+.tw-rest{visibility:hidden}
+.tw-caret{position:relative}
+.tw-caret::after{content:"";position:absolute;left:.04em;top:.14em;width:.07em;height:.82em;background:var(--soft);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion: no-preference){
+.mark polygon{transform-box:fill-box;animation:.55s cubic-bezier(.2,.7,.2,1) both}
+.mark .p-left{transform-origin:50% 100%;animation-name:growY;animation-delay:.25s}
+.mark .p-right{transform-origin:50% 0%;animation-name:growY;animation-delay:.6s}
+.mark .p-bar{transform-origin:0% 50%;animation-name:growX;animation-delay:1s;animation-duration:.45s}
+}
+@keyframes growY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes growX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+/* pillar sections */
+.pillar{border-top:1px solid var(--line)}
+.pillar .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,72px);padding-block:clamp(48px,7vw,88px)}
+@media (max-width:860px){.pillar .wrap{grid-template-columns:minmax(0,1fr)}}
+.pillar .head{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.pillar .bar{width:64px;height:10px;background:var(--c-fill);transform:skewX(-22deg)}
+.pillar h2{font-size:clamp(1.875rem,4vw,2.75rem);font-weight:700}
+.pillar .eyebrow{color:var(--c)}
+.pillar .head p{color:var(--muted);max-width:30em}
+.pillar .body{display:flex;flex-direction:column;gap:28px;min-width:0}
+#software{--c:var(--soft);--c-fill:var(--soft-fill)}
+#business{--c:var(--biz);--c-fill:var(--biz-fill)}
+#investment{--c:var(--inv);--c-fill:var(--inv-fill)}
+#business,#contact{background:var(--surface)}
+
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px}
+.product{border:1.5px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+.product{text-decoration:none;color:inherit;cursor:pointer;transition:background-color .18s,border-color .18s,transform .18s}
+.product:hover,.product:focus-visible{background:var(--surface);border-color:var(--c)}
+.product:hover{transform:translateY(-2px)}
+@media (prefers-reduced-motion: reduce){.product{transition:none}.product:hover{transform:none}}
+.product .pname{font-family:var(--display);font-size:1.25rem;font-weight:700;letter-spacing:-0.02em;line-height:1.1}
+.product p{margin:0}
+.product .kind{font-size:.8125rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
+.product p{color:var(--muted);font-size:1rem}
+.product .site{margin-top:auto;padding-top:8px;font-family:var(--display);font-weight:600;font-size:.9375rem;color:var(--c);text-decoration:none;overflow-wrap:anywhere}
+.product:hover .site{text-decoration:underline;text-underline-offset:4px}
+.list{display:grid;gap:0}
+.list li{display:grid;grid-template-columns:minmax(0,13em) minmax(0,1fr);gap:8px 24px;padding-block:18px;border-top:1px solid var(--line)}
+.list li:last-child{border-bottom:1px solid var(--line)}
+.list h3{font-size:1.0625rem;font-weight:600;letter-spacing:-0.01em;line-height:1.3}
+.list p{color:var(--muted);font-size:1rem}
+@media (max-width:560px){.list li{grid-template-columns:minmax(0,1fr)}}
+.sub{font-family:var(--display);font-weight:600;font-size:1rem}
+
+/* about + contact */
+.about .wrap{padding-block:clamp(48px,7vw,88px);display:flex;flex-direction:column;gap:20px;border-top:1px solid var(--line)}
+.about h2{font-size:clamp(1.625rem,3.4vw,2.25rem);font-weight:700;max-width:22em}
+.about p{color:var(--muted);max-width:42em}
+#contact{border-top:1px solid var(--line)}
+#contact .wrap{padding-block:clamp(48px,7vw,88px);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,72px)}
+@media (max-width:860px){#contact .wrap{grid-template-columns:minmax(0,1fr)}}
+#contact h2{font-size:clamp(1.875rem,4vw,2.75rem);font-weight:700}
+#contact .intro{display:flex;flex-direction:column;gap:14px}
+#contact .intro p{color:var(--muted);max-width:28em}
+.details{display:grid;gap:0;min-width:0}
+.details div{display:grid;grid-template-columns:6.5em minmax(0,1fr) auto;gap:12px;align-items:center;padding-block:16px;border-top:1px solid var(--line)}
+.details div:last-child{border-bottom:1px solid var(--line)}
+.details dt{font-size:.8125rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.details dd{margin:0;font-family:var(--display);font-weight:600;font-size:clamp(1rem,2vw,1.1875rem);overflow-wrap:anywhere;user-select:all}
+.copy{font:inherit;font-size:.875rem;font-weight:600;color:var(--fg);background:transparent;border:1.5px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer;min-width:5.2em}
+.copy:hover{border-color:var(--fg)}
+dl{margin:0}
+.reach{display:flex;flex-direction:column;gap:28px;min-width:0}
+.form{display:flex;flex-direction:column;gap:18px}
+.form .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.form label{display:flex;flex-direction:column;gap:8px;font-size:.8125rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);min-width:0}
+.form input,.form textarea{font:inherit;font-size:1.0625rem;font-weight:400;letter-spacing:0;text-transform:none;color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;width:100%;min-width:0}
+.form textarea{resize:vertical;min-height:8em}
+.form ::placeholder{color:var(--muted);opacity:.75}
+.form :focus::placeholder{color:transparent}
+.form input:focus-visible,.form textarea:focus-visible{outline:3px solid var(--soft);outline-offset:1px;border-color:var(--fg)}
+.form .bad{border-color:var(--soft)}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
+.send{font-family:var(--display);font-size:1rem;font-weight:600;color:var(--on-fill);background:var(--inv-fill);border:0;border-radius:999px;padding:13px 26px;cursor:pointer}
+.send:hover{opacity:.9}
+.status{font-size:.9375rem;color:var(--muted)}
+.status:empty{display:none}
+.alt{color:var(--muted);font-size:1rem;min-width:0}
+.alt .addr{font-family:var(--display);font-weight:600;color:var(--fg);overflow-wrap:anywhere;user-select:all}
+
+footer .wrap{padding-block:28px;display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;color:var(--muted);font-size:.9375rem}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.send:disabled{opacity:.6;cursor:default}
+.alt a.addr{text-decoration:none}
+.alt a.addr:hover{text-decoration:underline}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="AfroNextStep home">
+      <svg width="38" height="38" viewBox="0 0 120 120" aria-hidden="true">
+        <rect x="2" y="2" width="116" height="116" rx="26" fill="#EDF3EE" stroke="#0B3D2E" stroke-width="3"></rect>
+        <g transform="translate(60 60) scale(1.12) translate(-60 -61)">
+          <polygon points="45,55.5 80,78.5 80,94 45,71" fill="#0B3D2E"></polygon>
+          <polygon points="53,28 67,28 95,94 80,94" fill="#15694A"></polygon>
+          <polygon points="25,94 40,94 67,28 53,28" fill="#D9691A"></polygon>
+        </g>
+      </svg>
+      <span><span class="w-afro">Afro</span><span class="w-next">Next</span><span class="w-step">Step</span></span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#software">Software</a>
+      <a href="#business">Business</a>
+      <a href="#investment">Investment</a>
+      <a href="#about">About</a>
+      <a class="cta" href="#contact">Contact</a>
+    </nav>
+  </div>
+  <div class="strip" aria-hidden="true"><span></span><span></span><span></span></div>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow" style="color:var(--muted)">Software · Business · Investment Consulting</p>
+        <h1 id="hero-title" style="margin-top:18px" aria-label="Your next step in Africa starts here.">Your <em>next step</em> in Africa starts here.</h1>
+        <p class="lead">AfroNextStep is a consulting company based in Abuja, Nigeria. We build software, advise businesses and support investors working across African markets.</p>
+        <div class="pillars">
+          <a href="#software"><i></i>Software</a>
+          <a href="#business"><i></i>Business</a>
+          <a href="#investment"><i></i>Investment</a>
+        </div>
+      </div>
+      <svg class="mark" viewBox="0 0 120 120" role="img" aria-label="AfroNextStep logo mark">
+        <rect x="2" y="2" width="116" height="116" rx="26" fill="#EDF3EE" stroke="#0B3D2E" stroke-width="3"></rect>
+        <g transform="translate(60 60) scale(1.12) translate(-60 -61)">
+          <polygon class="p-bar" points="45,55.5 80,78.5 80,94 45,71" fill="#0B3D2E"></polygon>
+          <polygon class="p-right" points="53,28 67,28 95,94 80,94" fill="#15694A"></polygon>
+          <polygon class="p-left" points="25,94 40,94 67,28 53,28" fill="#D9691A"></polygon>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <section class="pillar" id="software">
+    <div class="wrap">
+      <div class="head">
+        <span class="bar" aria-hidden="true"></span>
+        <p class="eyebrow">Software</p>
+        <h2>Products we run, and software we build for you.</h2>
+        <p>We develop and operate our own SaaS products, and we build custom systems for companies that need something made for the way they work.</p>
+      </div>
+      <div class="body">
+        <p class="sub">Our products</p>
+        <div class="products">
+          <a class="product" href="https://ng-cersys.com" target="_blank" rel="noopener">
+            <span class="kind">Bureau de change</span>
+            <strong class="pname">NG-CERsys</strong>
+            <p>A currency exchange management system for running day-to-day exchange operations in one place.</p>
+            <span class="site">ng-cersys.com <span aria-hidden="true">↗</span></span>
+          </a>
+          <a class="product" href="https://www.afroqr.com" target="_blank" rel="noopener">
+            <span class="kind">QR platform</span>
+            <strong class="pname">AfroQR</strong>
+            <p>QR codes for businesses that want customers to reach their services with a single scan.</p>
+            <span class="site">afroqr.com <span aria-hidden="true">↗</span></span>
+          </a>
+          <a class="product" href="https://afromenu.app" target="_blank" rel="noopener">
+            <span class="kind">Hospitality</span>
+            <strong class="pname">AfroMenu</strong>
+            <p>Digital menus for restaurants, cafés and hotels, opened from a QR code at the table.</p>
+            <span class="site">afromenu.app <span aria-hidden="true">↗</span></span>
+          </a>
+        </div>
+        <p class="sub">Services</p>
+        <ul class="list">
+          <li><h3>Custom software development</h3><p>Web and business applications designed around your process, from first specification to launch and support.</p></li>
+          <li><h3>Digital transformation</h3><p>Moving paper-based and manual work into reliable digital systems your team will use.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="pillar" id="business">
+    <div class="wrap">
+      <div class="head">
+        <span class="bar" aria-hidden="true"></span>
+        <p class="eyebrow">Business</p>
+        <h2>Clear advice for companies growing in African markets.</h2>
+        <p>We work with founders and management teams on the decisions that shape a business: where to go, how to get there and what to build first.</p>
+      </div>
+      <div class="body">
+        <ul class="list">
+          <li><h3>Business and strategy consulting</h3><p>Practical plans for growth, operations and organisation, written to be carried out.</p></li>
+          <li><h3>Market-entry support</h3><p>Guidance for companies entering a new African market, starting with Nigeria.</p></li>
+          <li><h3>Company setup</h3><p>Support with the first steps of establishing and structuring a business on the ground.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="pillar" id="investment">
+    <div class="wrap">
+      <div class="head">
+        <span class="bar" aria-hidden="true"></span>
+        <p class="eyebrow">Investment</p>
+        <h2>Local insight for investors looking at Africa.</h2>
+        <p>We help investors understand an opportunity before they commit, and we stay involved as it moves forward.</p>
+      </div>
+      <div class="body">
+        <ul class="list">
+          <li><h3>Investment consulting</h3><p>An independent view of the opportunity, the market around it and the practical steps to pursue it.</p></li>
+          <li><h3>Opportunity assessment</h3><p>On-the-ground review of sectors, partners and projects in the markets we know.</p></li>
+          <li><h3>Local partnership</h3><p>Introductions and coordination with the people and institutions an investment depends on.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <p class="eyebrow" style="color:var(--muted)">About</p>
+      <h2>One company for the software, the business plan and the investment behind it.</h2>
+      <p>AfroNextStep was founded by Nuh Emrah and works from LifeCamp, Abuja. Our team builds and runs its own software products, which keeps our consulting grounded in day-to-day experience of doing business in Africa.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="intro">
+        <p class="eyebrow" style="color:var(--muted)">Contact</p>
+        <h2>Tell us about your next step.</h2>
+        <p>Send us a short description of what you need. We reply from Abuja, West Africa Time (UTC+1).</p>
+      </div>
+      <div class="reach">
+        <form class="form" id="contact-form" novalidate>
+          <div class="hp" aria-hidden="true"><label for="f-website">Leave this field empty<input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
+          <div class="row">
+            <label for="f-name">Name<input id="f-name" name="name" type="text" autocomplete="name" placeholder="e.g. Amina Okafor" required></label>
+            <label for="f-phone">Phone<input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="e.g. +234 800 000 0000"></label>
+          </div>
+          <label for="f-email">Email<input id="f-email" name="email" type="email" autocomplete="email" placeholder="e.g. amina@company.com" required></label>
+          <label for="f-message">Message<textarea id="f-message" name="message" rows="5" placeholder="e.g. We would like to get in touch about consulting: reviewing the challenges in our business growth and the software support we need." required></textarea></label>
+          <div class="actions">
+            <button class="send" id="f-send" type="submit">Send message</button>
+            <p class="alt">or email <a class="addr" id="c-email" href="mailto:nuh@afronextstep.com">nuh@afronextstep.com</a></p>
+          </div>
+          <p class="status" id="f-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="strip" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="wrap">
+    <span>© 2026 AfroNextStep</span>
+    <span>Software · Business · Investment Consulting</span>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.copy').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var el = document.getElementById(btn.dataset.copy);
+    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+    var select = function () { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Selected'; setTimeout(function () { btn.textContent = 'Copy'; }, 1600); };
+    try { navigator.clipboard.writeText(el.textContent.trim()).then(done, select); } catch (e) { select(); }
+  });
+});
+(function () {
+  var form = document.getElementById('contact-form'), status = document.getElementById('f-status');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var missing = [];
+    ['f-name', 'f-email', 'f-message'].forEach(function (id) {
+      var el = document.getElementById(id), ok = el.value.trim() !== '' && el.checkValidity();
+      el.classList.toggle('bad', !ok);
+      if (!ok) missing.push(el);
+    });
+    if (missing.length) { status.textContent = 'Please fill in your name, a valid email and a message.'; missing[0].focus(); return; }
+    var btn = document.getElementById('f-send');
+    btn.disabled = true; status.textContent = 'Sending…';
+    fetch('contact.php', { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+      .then(function (r) { return r.json().then(function (d) { return { ok: r.ok && d.ok, d: d }; }); })
+      .then(function (res) {
+        if (res.ok) { form.reset(); status.textContent = 'Thank you. Your message has been sent; we will reply by email.'; }
+        else { status.textContent = (res.d && res.d.error) || 'Your message could not be sent. Please email nuh@afronextstep.com instead.'; }
+      })
+      .catch(function () { status.textContent = 'Your message could not be sent. Please email nuh@afronextstep.com instead.'; })
+      .then(function () { btn.disabled = false; });
+  });
+})();
+(function () {
+  var h = document.getElementById('hero-title');
+  if (!h || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  /* each slogan: [text, colour token or null] segments */
+  var slogans = [
+    [['Your ', null], ['next step', '--soft'], [' in Africa starts here.', null]],
+    [['Software', '--soft'], [' built around how you work.', null]],
+    [['Business', '--biz'], [' advice you can act on.', null]],
+    [['Investment', '--biz'], [' guided by local insight.', null]],
+    [['Consulting', '--soft'], [' from a team that builds.', null]]
+  ];
+  var si = 0, n = 0, dir = 1;
+  function len(sl) { return sl.reduce(function (a, seg) { return a + seg[0].length; }, 0); }
+  function esc(t) { return t.replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  function build(sl, shown) {
+    /* the whole sentence is always laid out, so line breaks never move; untyped letters are just invisible */
+    var left = shown, vis = '', rest = '';
+    sl.forEach(function (seg) {
+      var a = seg[0].slice(0, Math.max(left, 0)), b = seg[0].slice(Math.max(left, 0)); left -= seg[0].length;
+      if (a) vis += seg[1] ? '<em style="color:var(' + seg[1] + ')">' + esc(a) + '</em>' : esc(a);
+      rest += esc(b);
+    });
+    return '<span aria-hidden="true">' + vis + '<span class="tw-caret"></span><span class="tw-rest">' + rest + '</span></span>';
+  }
+  function render() { h.innerHTML = build(slogans[si], n); }
+  function reserve() {
+    /* fix the headline's height to the tallest slogan at this width */
+    var keep = h.innerHTML, max = 0;
+    h.style.minHeight = '0';
+    slogans.forEach(function (sl) { h.innerHTML = build(sl, len(sl)); max = Math.max(max, h.getBoundingClientRect().height); });
+    h.style.minHeight = Math.ceil(max) + 'px';
+    h.innerHTML = keep;
+  }
+  var rz; window.addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(reserve, 150); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(reserve);
+  function tick() {
+    var total = len(slogans[si]);
+    if (dir === 1) {
+      n++; render();
+      if (n >= total) { dir = -1; setTimeout(tick, 2400); return; }
+      setTimeout(tick, 50 + Math.random() * 45);
+    } else {
+      n--; render();
+      if (n <= 0) { dir = 1; si = (si + 1) % slogans.length; h.setAttribute('aria-label', slogans[si].map(function (x) { return x[0]; }).join('')); setTimeout(tick, 380); return; }
+      setTimeout(tick, 24);
+    }
+  }
+  n = 0; render(); reserve(); setTimeout(tick, 350);
+})();
+</script>
+</body>
+</html>
