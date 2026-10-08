@@ -120,7 +120,8 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;letter-spacing:-0.02em;lin
 #investment{--c:var(--inv);--c-fill:var(--inv-fill)}
 #business,#contact{background:var(--surface)}
 
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+@media (max-width:600px){.products{grid-template-columns:1fr}}
 .product{border:1.5px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
 .product{text-decoration:none;color:inherit;cursor:pointer;transition:background-color .18s,border-color .18s,transform .18s}
 .product:hover,.product:focus-visible{background:var(--surface);border-color:var(--c)}
@@ -277,6 +278,11 @@ img{max-width:100%}
             <div class="phead"><span class="plogo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10"/><path d="M17 21V3c-2 1-3 4-3 8h3"/></svg></span><div><span class="kind">Hospitality</span><strong class="pname">AfroMenu</strong></div></div>
             <p>Digital menus for restaurants, cafés and hotels, opened from a QR code at the table.</p>
             <span class="site">afromenu.app <span aria-hidden="true">↗</span></span>
+          </a>
+          <a class="product" href="https://afrobooking.app" target="_blank" rel="noopener">
+            <div class="phead"><span class="plogo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M9 15l2 2 4-4"/></svg></span><div><span class="kind">Appointments</span><strong class="pname">AfroBooking</strong></div></div>
+            <p>Online appointment booking for salons, clinics and service businesses, with each business on its own booking page.</p>
+            <span class="site">afrobooking.app <span aria-hidden="true">↗</span></span>
           </a>
         </div>
         <p class="sub">Services</p>
