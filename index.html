@@ -127,6 +127,12 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;letter-spacing:-0.02em;lin
 .product:hover{transform:translateY(-2px)}
 @media (prefers-reduced-motion: reduce){.product{transition:none}.product:hover{transform:none}}
 .product .pname{font-family:var(--display);font-size:1.25rem;font-weight:700;letter-spacing:-0.02em;line-height:1.1}
+.product .phead{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+@media (max-width:600px){.product .phead{flex-direction:row;align-items:center;gap:12px}}
+.product .pname{white-space:nowrap}
+.product .plogo{width:52px;height:52px;border-radius:12px;flex:none;display:flex;align-items:center;justify-content:center;background:var(--c);color:#fff}
+.product .plogo svg{width:28px;height:28px;display:block}
+.product .phead div{display:flex;flex-direction:column;gap:4px;min-width:0}
 .product p{margin:0}
 .product .kind{font-size:.8125rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--c)}
 .product p{color:var(--muted);font-size:1rem}
@@ -169,6 +175,13 @@ dl{margin:0}
 .form input:focus-visible,.form textarea:focus-visible{outline:3px solid var(--soft);outline-offset:1px;border-color:var(--fg)}
 .form .bad{border-color:var(--soft)}
 .actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
+.wa{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:50;display:flex;align-items:center;gap:10px;padding:7px 18px 7px 7px;border-radius:999px;background:#0B3D2E;color:#fff;text-decoration:none;font-family:var(--display);font-weight:600;font-size:.9375rem;box-shadow:0 6px 20px rgba(0,0,0,.28);transition:transform .18s,box-shadow .18s}
+.wa:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(0,0,0,.34)}
+.wa:focus-visible{outline:3px solid #25D366;outline-offset:3px}
+.wa .wa-ic{width:40px;height:40px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;flex:none}
+.wa .wa-ic svg{width:24px;height:24px;display:block}
+footer{padding-bottom:84px}
+@media (prefers-reduced-motion: reduce){.wa{transition:none}.wa:hover{transform:none}}
 .send{font-family:var(--display);font-size:1rem;font-weight:600;color:var(--on-fill);background:var(--inv-fill);border:0;border-radius:999px;padding:13px 26px;cursor:pointer}
 .send:hover{opacity:.9}
 .status{font-size:.9375rem;color:var(--muted)}
@@ -251,20 +264,17 @@ img{max-width:100%}
         <p class="sub">Our products</p>
         <div class="products">
           <a class="product" href="https://ng-cersys.com" target="_blank" rel="noopener">
-            <span class="kind">Bureau de change</span>
-            <strong class="pname">NG-CERsys</strong>
+            <div class="phead"><span class="plogo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13l-3-3"/><path d="M20 16H7l3 3"/></svg></span><div><span class="kind">Bureau de change</span><strong class="pname">NG-CERsys</strong></div></div>
             <p>A currency exchange management system for running day-to-day exchange operations in one place.</p>
             <span class="site">ng-cersys.com <span aria-hidden="true">↗</span></span>
           </a>
           <a class="product" href="https://www.afroqr.com" target="_blank" rel="noopener">
-            <span class="kind">QR platform</span>
-            <strong class="pname">AfroQR</strong>
+            <div class="phead"><span class="plogo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM18 18h3v3h-3zM14 20h1M20 14h1"/></svg></span><div><span class="kind">QR platform</span><strong class="pname">AfroQR</strong></div></div>
             <p>QR codes for businesses that want customers to reach their services with a single scan.</p>
             <span class="site">afroqr.com <span aria-hidden="true">↗</span></span>
           </a>
           <a class="product" href="https://afromenu.app" target="_blank" rel="noopener">
-            <span class="kind">Hospitality</span>
-            <strong class="pname">AfroMenu</strong>
+            <div class="phead"><span class="plogo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M5 3v5a2 2 0 0 0 4 0V3M7 11v10"/><path d="M17 21V3c-2 1-3 4-3 8h3"/></svg></span><div><span class="kind">Hospitality</span><strong class="pname">AfroMenu</strong></div></div>
             <p>Digital menus for restaurants, cafés and hotels, opened from a QR code at the table.</p>
             <span class="site">afromenu.app <span aria-hidden="true">↗</span></span>
           </a>
@@ -349,6 +359,10 @@ img{max-width:100%}
   </section>
 </main>
 
+<a class="wa" href="https://wa.me/2349132336316?text=Hello%20AfroNextStep%2C%20I%20would%20like%20to%20get%20in%20touch." target="_blank" rel="noopener" aria-label="Contact us on WhatsApp, +234 913 233 6316">
+  <span class="wa-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 20.5l1.3-4.2A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 8.2c.2-.5.6-.6 1-.5l.9 1.9c.1.3 0 .5-.2.7l-.5.6c.6 1.2 1.6 2.2 2.8 2.8l.6-.5c.2-.2.5-.3.7-.2l1.9.9c.1.4 0 .8-.5 1-.9.5-2 .5-3-.1a9.700 9.700 0 0 1-3.600-3.600c-.6-1-.6-2.100-.1-3z" fill="#fff" stroke="none"/></svg></span>
+  <span>Contact us</span>
+</a>
 <footer>
   <div class="strip" aria-hidden="true"><span></span><span></span><span></span></div>
   <div class="wrap">
