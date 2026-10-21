@@ -151,6 +151,25 @@ h1,h2,h3{font-family:var(--display);text-wrap:balance;letter-spacing:-0.02em;lin
 .about .wrap{padding-block:clamp(48px,7vw,88px);display:flex;flex-direction:column;gap:20px;border-top:1px solid var(--line)}
 .about h2{font-size:clamp(1.625rem,3.4vw,2.25rem);font-weight:700;max-width:22em}
 .about p{color:var(--muted);max-width:42em}
+.about .lead{font-size:1.125rem}
+.founder{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start;margin-top:16px}
+@media (max-width:760px){.founder{grid-template-columns:1fr}}
+.fcard{border:1.5px solid var(--line);border-radius:18px;padding:24px;background:var(--surface);display:flex;flex-direction:column;gap:14px}
+.fcard .avatar{width:120px;height:120px;border-radius:50%;object-fit:cover;display:block;border:3px solid var(--soft-fill);box-shadow:0 0 0 5px var(--surface),0 0 0 7px var(--biz-fill);margin:4px}
+.fcard .fname{font-family:var(--display);font-size:1.375rem;font-weight:700;line-height:1.2;color:var(--fg);margin:0}
+.fcard .frole{font-family:var(--display);font-size:.8125rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin:0}
+.fcard ul{list-style:none;margin:6px 0 0;padding:14px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.fcard li{display:flex;gap:10px;align-items:baseline;color:var(--fg);font-size:.9375rem;line-height:1.4}
+.fcard li::before{content:"";width:8px;height:8px;background:var(--soft-fill);flex:none;transform:translateY(-1px)}
+.fbio{display:flex;flex-direction:column;gap:14px}
+.fbio h3{font-family:var(--display);font-size:1.25rem;font-weight:700;margin:0;color:var(--fg)}
+.mission{margin-top:28px;border-radius:18px;background:var(--inv-fill);color:#fff;padding:clamp(24px,4vw,40px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 40px;align-items:center;position:relative;overflow:hidden}
+@media (max-width:760px){.mission{grid-template-columns:1fr}}
+.mission .eyebrow{color:#F5B27A;margin:0}
+.about .mission p.mtext{color:#fff;font-family:var(--display);font-size:clamp(1.125rem,2.2vw,1.375rem);font-weight:600;line-height:1.45;margin:8px 0 0;max-width:34em}
+.about .mission .tagline{color:#fff;font-family:var(--display);font-weight:700;font-size:clamp(1.125rem,2vw,1.375rem);line-height:1.3;text-align:right;white-space:nowrap}
+@media (max-width:760px){.mission .tagline{text-align:left;white-space:normal}}
+.mission .tagline span{display:block;color:#F5B27A}
 #contact{border-top:1px solid var(--line)}
 #contact .wrap{padding-block:clamp(48px,7vw,88px);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,5vw,72px)}
 @media (max-width:860px){#contact .wrap{grid-template-columns:minmax(0,1fr)}}
@@ -346,9 +365,40 @@ img{max-width:100%}
 
   <section class="about" id="about">
     <div class="wrap">
-      <p class="eyebrow" style="color:var(--muted)">About</p>
+      <p class="eyebrow" style="color:var(--muted)">About us</p>
       <h2>One company for the software, the business plan and the investment behind it.</h2>
-      <p>AfroNextStep was founded by Nuh Emrah and works from LifeCamp, Abuja. Our team builds and runs its own software products, which keeps our consulting grounded in day-to-day experience of doing business in Africa.</p>
+      <p class="lead">AfroNextStep is a software, business and investment consulting company based in LifeCamp, Abuja. Our team builds and runs its own SaaS products, which keeps our consulting grounded in day-to-day experience of doing business in Africa.</p>
+
+      <div class="founder">
+        <div class="fcard">
+          <img class="avatar" src="founder.jpg" width="120" height="120" alt="Nuh Emrah Seren, Founder &amp; CEO of AfroNextStep" loading="lazy">
+          <div>
+            <p class="fname">Nuh Emrah Seren</p>
+            <p class="frole" style="margin-top:6px">Founder &amp; CEO</p>
+          </div>
+          <ul>
+            <li>10+ years in enterprise software</li>
+            <li>Senior Software Engineer &amp; Technical Team Lead</li>
+            <li>Worked with GE and Accenture</li>
+            <li>Banking, insurance and financial reporting</li>
+          </ul>
+        </div>
+        <div class="fbio">
+          <h3>Meet the Founder</h3>
+          <p>Nuh Emrah Seren is a Senior Software Engineer, Technical Team Lead and technology entrepreneur with over 10 years of international experience in enterprise software development.</p>
+          <p>Throughout his career, he has contributed to large-scale, business-critical projects across banking, insurance, financial reporting and enterprise software systems. His professional experience includes working with global organizations such as General Electric (GE) and Accenture, contributing to complex technology solutions and taking on senior engineering and technical leadership responsibilities.</p>
+          <p>With extensive expertise in software architecture, enterprise integrations, backend development and technical team leadership, he founded AfroNextStep with a clear vision: to bring reliable, scalable and affordable technology solutions to businesses across Africa.</p>
+          <p>Through AfroNextStep and its growing portfolio of SaaS products, he aims to support digital transformation, encourage innovation and help African businesses grow through technology.</p>
+        </div>
+      </div>
+
+      <div class="mission">
+        <div>
+          <p class="eyebrow">Our Mission</p>
+          <p class="mtext">To empower businesses with accessible, reliable and innovative digital solutions that simplify everyday operations and create opportunities for sustainable growth.</p>
+        </div>
+        <p class="tagline" style="margin:0">Built for Africa.<span>Designed for Growth.</span></p>
+      </div>
     </div>
   </section>
 
