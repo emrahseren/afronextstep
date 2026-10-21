@@ -1,22 +1,23 @@
 <?php
 /**
  * AfroNextStep contact form handler (SMTP version).
- * Sends the form through your Namecheap Private Email mailbox, so the message
- * is delivered like any email you send yourself.
+ * Sends the form through the Gmail account below, using a Google "app password".
  *
- * SETUP: the mailbox password is NOT stored in this file (it is kept out of git).
- * On the server, copy contact-config.example.php to contact-config.php and put
- * the password there. Deploys never overwrite contact-config.php.
+ * SETUP: the app password is NOT stored in this file (it is kept out of git).
+ * On the server, create contact-config.php next to this file:
+ *     <?php return ['smtp_pass' => 'your-16-letter-app-password'];
+ * Deploys (git pull) never overwrite contact-config.php.
  */
 
-const SMTP_HOST = 'ssl://mail.privateemail.com';
+const SMTP_HOST = 'ssl://smtp.gmail.com';
 const SMTP_PORT = 465;
-const SMTP_USER = 'nuh@afronextstep.com';
-const MAIL_TO   = 'nuh@afronextstep.com';
+const SMTP_USER = 'seren.emrah@gmail.com';   // Gmail account that sends
+const MAIL_TO   = 'seren.emrah@gmail.com';   // where form messages arrive
+const PUBLIC_EMAIL = 'nuh@afronextstep.com';  // shown to visitors if sending fails
 
 $configFile = __DIR__ . '/contact-config.php';
 $config = is_file($configFile) ? (include $configFile) : [];
-define('SMTP_PASS', is_array($config) ? (string)($config['smtp_pass'] ?? '') : '');
+define('SMTP_PASS', str_replace(' ', '', is_array($config) ? (string)($config['smtp_pass'] ?? '') : ''));
 
 header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
@@ -121,7 +122,7 @@ function smtp_send($data) {
 $err = SMTP_PASS === '' ? 'contact-config.php is missing or has no password' : smtp_send($data);
 if ($err !== null) {
     error_log('AfroNextStep contact form: ' . $err);
-    respond(500, false, 'Your message could not be sent. Please email ' . MAIL_TO . ' instead.');
+    respond(500, false, 'Your message could not be sent. Please email ' . PUBLIC_EMAIL . ' instead.');
 }
 
 $_SESSION['last_sent'] = $now;
